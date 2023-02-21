@@ -1,8 +1,7 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import { Searchbar } from './features/searchbar/Searchbar';
-import { Subreddits } from './features/subreddits/subreddits';
+import Subreddits from './features/subreddits/subreddits';
 import { Posts } from './features/posts/Posts';
 
 function App() {

@@ -2,25 +2,3 @@
     margin-left: 5vw;
     width: 50%;
 }
-.post {
-    margin-top: 5vh;
-}
-.post-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.post-header h2 {
-    color: #6320EE;
-    font-size: 2.5rem;
-}
-.votes {
-    display: flex;
-    color: #FFECD6;
-}
-.votes button {
-    margin-inline: 1rem;
-}
-.post img {
-    width: 100%;
-}

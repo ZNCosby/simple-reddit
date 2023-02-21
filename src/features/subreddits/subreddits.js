@@ -1,26 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSubreddits, selectSubreddits } from './subredditsSlice';
 import './subreddits.css';
 import logo from '../searchbar/logo.png';
 
-export const Subreddits = () => {
+const Subreddits = () => {
+    const dispatch = useDispatch();
+    const subreddits = useSelector(selectSubreddits);
+
+    useEffect(() => {
+        dispatch(fetchSubreddits());
+      }, [dispatch]);
+
     return (
         <div className="subreddits">
             <h1 className="subreddits-header">Subreddits</h1>
             <div className="border"></div>
             <ul className="subreddit-list">
-                <li className="subreddit">
-                    <button className="subreddit-link">
-                        <img src={logo} className="subreddit-icon"/>
-                        SubredditNameGoesHere
-                    </button>
-                </li>
-                <li className="subreddit">
-                    <button className="subreddit-link">
-                        <img src={logo} className="subreddit-icon"/>
-                        SubredditNameGoesHere
-                    </button>
-                </li>
+                {subreddits.map((subreddit) => (
+                    <li
+                        key={subreddit.id}
+                        className="subreddit"
+                    >
+                        <button
+                        type="button"
+                        className="subreddit-link"
+                        >
+                        <img
+                            src={subreddit.icon_img || logo}
+                            alt={`${subreddit.display_name}`}
+                            className="subreddit-icon"
+                            style={{ border: `3px solid ${subreddit.primary_color}` }}
+                        />
+                            {subreddit.display_name}
+                        </button>
+                    </li>
+                ))}
             </ul>
         </div>
     );
 }
+
+export default Subreddits;
