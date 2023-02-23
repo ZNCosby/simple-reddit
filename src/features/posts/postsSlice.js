@@ -1,5 +1,5 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { getSubredditPosts } from '../../api/reddit';
+import { getSubredditPosts, getPostComments } from '../../api/reddit';
 
 const postsSlice = createSlice({
     name: 'posts',
@@ -33,10 +33,30 @@ const postsSlice = createSlice({
             state.selectedSubreddit = action.payload;
             state.searchTerm = '';
           },
+          toggleShowingComments(state, action) {
+            state.posts[action.payload].showingComments = !state.posts[action.payload]
+              .showingComments;
+          },
+          startGetComments(state, action) {
+            state.posts[action.payload].showingComments = !state.posts[action.payload].showingComments;
+            if (!state.posts[action.payload].showingComments) {
+              return;
+            }
+            state.posts[action.payload].loadingComments = true;
+            state.posts[action.payload].error = false;
+          },
+          getCommentsSuccess(state, action) {
+            state.posts[action.payload.index].loadingComments = false;
+            state.posts[action.payload.index].comments = action.payload.comments;
+          },
+          getCommentsFailed(state, action) {
+            state.posts[action.payload].loadingComments = false;
+            state.posts[action.payload].error = true;
+          },
     }
 });
 
-export const { setPosts, startGetPosts, getPostsSuccess, getPostsFailed, setSearchTerm, setSelectedSubreddit } = postsSlice.actions;
+export const { setPosts, startGetPosts, getPostsSuccess, getPostsFailed, setSearchTerm, setSelectedSubreddit, toggleShowingComments, startGetComments, getCommentsSuccess, getCommentsFailed} = postsSlice.actions;
 const selectPosts = (state) => state.posts.posts;
 const selectSearchTerm = (state) => state.posts.searchTerm;
 export const selectSelectedSubreddit = (state) => state.posts.selectedSubreddit;
@@ -57,6 +77,16 @@ export const fetchPosts = (subreddit) => async (dispatch) => {
       dispatch(getPostsSuccess(postsWithData));
     } catch (error) {
       dispatch(getPostsFailed());
+    }
+  };
+
+  export const fetchComments = (index, permalink) => async (dispatch) => {
+    try {
+      dispatch(startGetComments(index));
+      const comments = await getPostComments(permalink);
+      dispatch(getCommentsSuccess({ index, comments }));
+    } catch (error) {
+      dispatch(getCommentsFailed(index));
     }
   };
 

@@ -1,5 +1,4 @@
 .posts {
-    
     margin-left: 5vw;
     width: 50%;
 }
@@ -7,4 +6,24 @@
     margin-top: 7.5vh;
     margin-left: 25vw;
     color: #FFECD6;
+}
+.error button {
+    background-color: #152F38;
+    border: none;
+    border-radius: 1rem;
+    font-size: 2rem;
+    color: #FFECD6;
+}
+
+@media (max-width: 950px) {
+    .posts {
+        margin-left: 5vw;
+        width: 90vw;
+    }
+    .error{
+        margin-top: 7.5vh;
+        margin-left: 5vw;
+        width: 90vw;
+        color: #FFECD6;
+    }
 }

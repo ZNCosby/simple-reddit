@@ -1,0 +1,16 @@
+.comment {
+    background-color: #152F38;
+    border-radius: 2rem;
+    padding: .5rem;
+    color: #FFECD6;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.comment-data {
+    color: #9567f3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

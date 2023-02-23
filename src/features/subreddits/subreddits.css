@@ -68,3 +68,9 @@
     width: 3rem;
     border-radius: 50%;
 }
+
+@media (max-width: 950px) {
+    .subreddits {
+        display: none;
+    }
+}

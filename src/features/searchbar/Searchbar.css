@@ -1,5 +1,5 @@
 .headerBar {
-    width: 100vw;
+    width: 100%;
     position: fixed;
     top: 0;
     display: flex;
@@ -9,7 +9,7 @@
     z-index: 10;
 }
 .logoAndHeader {
-    margin-left: 15px;
+    margin-left: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -33,7 +33,7 @@
     margin-right: 15px;
     background-color: #FFECD6;
     color: #071013;
-    width: 350px;
+    width: 20vw;
     height: 35px;
     font-size: 18px;
     border-radius: 8px;
@@ -70,3 +70,27 @@
 .search:hover {
     background: #A23E48;
 }
+
+@media (max-width: 950px) {
+    .logoAndHeader {
+        margin-left: .25rem;
+    }
+    .searchbar input {
+        width: 30vw;
+        font-size: .75rem;
+    }
+    .searchbar button {
+        margin-right: 1.5rem;
+    }
+  }
+  @media (max-width: 500px) {
+    .header {
+        font-size: .75rem;
+    }
+    .logo {
+        width: 30px;
+    }
+    .searchbar button {
+        margin-right: .5rem;
+    }
+  }

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSubreddits, selectSubreddits } from './subredditsSlice';
-import { selectSelectedSubreddit } from "../posts/postsSlice";
+import { selectSelectedSubreddit, setSelectedSubreddit } from "../posts/postsSlice";
 import './subreddits.css';
 import logo from '../searchbar/logo.png';
 
@@ -27,6 +27,7 @@ const Subreddits = () => {
                         <button
                         type="button"
                         className="subreddit-link"
+                        onClick={() => dispatch(setSelectedSubreddit(subreddit.url))}
                         >
                         <img
                             src={subreddit.icon_img || logo}
