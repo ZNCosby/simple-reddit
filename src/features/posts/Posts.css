@@ -1,4 +1,10 @@
 .posts {
+    
     margin-left: 5vw;
     width: 50%;
+}
+.error{
+    margin-top: 7.5vh;
+    margin-left: 25vw;
+    color: #FFECD6;
 }

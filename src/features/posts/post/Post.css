@@ -1,14 +1,13 @@
 .post {
-    margin-top: 5vh;
+    margin-top: 7.5vh;
 }
 .post-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.post-header h2 {
+.post-title {
     color: #6320EE;
-    font-size: 2.5rem;
 }
 .votes {
     display: flex;
@@ -19,4 +18,14 @@
 }
 .post img {
     width: 100%;
+}
+img[src=""] {
+    display: none;
+}
+.below-post {
+    display: flex;
+}
+.post-author {
+    color: #9567f3;
+    margin-left: 0;
 }

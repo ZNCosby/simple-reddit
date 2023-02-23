@@ -1,21 +1,26 @@
 import React from "react";
 import './Post.css';
-import logo from '../searchbar/logo.png';
+import { TiArrowDownOutline, TiArrowDownThick, TiArrowUpOutline, TiArrowUpThick } from "react-icons/ti";
 
-export const Post = () => {
+export const Post = (props) => {
+    const { post } = props;
+
     return(
         <div className="post">
             <div className="post-header">
-                <h2>Post Title</h2>
+                <h3 className="post-title">{post.title}</h3>
                 <div className="votes">
                     <button className="up-vote" aria-label="Up vote">
                     </button>
-                    <p>Upvote count goes here</p>
+                    <p>{post.ups}</p>
                     <button className="down-vote" aria-label="Down vote">
                     </button>
                 </div>
             </div>
-            <img src={logo} />
+            <img src={post.url} alt=''/>
+            <div className="below-post">
+                <h4 className="post-author">{post.author}</h4>
+            </div>
         </div>
     )
 }
