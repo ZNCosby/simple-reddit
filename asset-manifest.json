@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/simple-reddit/static/css/main.3ba3b734.css",
+    "main.js": "/simple-reddit/static/js/main.066bb46e.js",
+    "static/js/787.9bfd3029.chunk.js": "/simple-reddit/static/js/787.9bfd3029.chunk.js",
+    "static/media/logo.png": "/simple-reddit/static/media/logo.fb4bb73af75729bf236d.png",
+    "index.html": "/simple-reddit/index.html",
+    "main.3ba3b734.css.map": "/simple-reddit/static/css/main.3ba3b734.css.map",
+    "main.066bb46e.js.map": "/simple-reddit/static/js/main.066bb46e.js.map",
+    "787.9bfd3029.chunk.js.map": "/simple-reddit/static/js/787.9bfd3029.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ba3b734.css",
+    "static/js/main.066bb46e.js"
+  ]
+}
